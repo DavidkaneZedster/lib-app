@@ -1,7 +1,8 @@
 // import path from 'node:path';
-import { Configuration, ProgressPlugin } from 'webpack';
+import webpack from 'webpack';
+const { ProgressPlugin } = webpack;
 
-const config: Configuration = {
+const config = {
   module: {
     rules: [
       {

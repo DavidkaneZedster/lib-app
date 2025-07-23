@@ -30,7 +30,6 @@ export const mount = (container: HTMLElement) => {
     root = null;
   };
 };
-export default { mount };
 
 // (window as any).MyMicroApp = { mount };
 console.log('aaaaaaaaaaaa');

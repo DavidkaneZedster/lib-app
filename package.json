@@ -5,6 +5,8 @@
     "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "npm run build:app && npm run build:lib",
     "build:app": "cross-env NODE_ENV=production webpack",
+    "build:libs": "cross-env NODE_ENV=production webpack --config webpack.lib.config.js",
+    "start:dev": "cross-env NODE_ENV=development webpack serve --config webpack.lib.config.js",
     "build:lib": "cross-env NODE_ENV=production webpack -c webpack.lib.config.ts",
     "preview": "static dist/lib -H \"{\\\"Access-Control-Allow-Origin\\\": \\\"*\\\"}\"",
     "lint": "npx eslint . ",
