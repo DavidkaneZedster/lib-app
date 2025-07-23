@@ -4,6 +4,8 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "noImplicitAny": true,
     "module": "esnext",
     "target": "es2020",
@@ -11,19 +13,7 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "strict": true
-    //  "baseUrl": "./src"
   },
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "compilerOptions": {
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "target": "ES2020",
-      "esModuleInterop": true,
-      "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true
-    }
-  },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+  "exclude": ["dist", "node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

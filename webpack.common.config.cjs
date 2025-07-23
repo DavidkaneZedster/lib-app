@@ -1,12 +1,10 @@
-// import path from 'node:path';
-import webpack from 'webpack';
-const { ProgressPlugin } = webpack;
+const { ProgressPlugin } = require('webpack');
 
-const config = {
+module.exports = {
   module: {
     rules: [
       {
-        test: /.tsx?$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -17,9 +15,7 @@ const config = {
       {
         test: /\.(png|jpe?g|gif)$/i,
         loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
+        options: { name: '[path][name].[ext]' },
       },
       {
         test: /\.svg$/,
@@ -32,5 +28,3 @@ const config = {
   },
   plugins: [new ProgressPlugin()],
 };
-
-export default config;

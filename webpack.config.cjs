@@ -1,16 +1,13 @@
-import path from 'node:path';
-import { HotModuleReplacementPlugin } from 'webpack';
-// import CopyWebpackPlugin from "copy-webpack-plugin";
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { merge } from 'webpack-merge';
-import common from './webpack.common.config';
-
-// const MODE = process.env.MODE || 'LOCAL';
+const path = require('path');
+const { HotModuleReplacementPlugin } = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.config.cjs');
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
 
-const config = merge(common, {
+module.exports = merge(common, {
   mode: isDev ? 'development' : 'production',
   entry: { app: './src/main.tsx' },
   output: {
@@ -24,15 +21,13 @@ const config = merge(common, {
     }),
     new HotModuleReplacementPlugin(),
   ],
-  devtool: isDev ? 'inline-source-map' : undefined,
+  devtool: isDev ? 'inline-source-map' : false,
   devServer: isDev
     ? {
-        port: 4001,
+        port: 8080,
         open: true,
         hot: true,
         historyApiFallback: true,
       }
     : undefined,
 });
-
-export default config;
